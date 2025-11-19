@@ -13,7 +13,7 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-
+// test comment
 export default function FavoriteScreen() {
   const navigation = useNavigation();
 
