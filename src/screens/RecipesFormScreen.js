@@ -14,7 +14,7 @@ export default function RecipesFormScreen({ route, navigation }) {
   const saverecipe = async () => {
     const newrecipe = { title, image, description };
     try {
-      const existingRecipes = AsyncStorage.getItem("customrecipes");
+      const existingRecipes = await AsyncStorage.getItem("customrecipes");
       const recipes = existingRecipes ? JSON.parse(existingRecipes) : [];
 
       if (recipeToEdit !== undefined) {

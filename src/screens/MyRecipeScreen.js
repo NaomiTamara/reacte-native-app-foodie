@@ -76,11 +76,11 @@ import { Button } from "react-native-web";
               recipes.map((recipe, index) => (
                 <View key={index} style={styles.recipeCard} testID="recipeCard">
                   <TouchableOpacity testID="handlerecipeBtn" onPress={() => handlerecipeClick(recipe)}>
-                  
+                    <Image source={{ uri:recipe.image }} style={styles.recipeImage}/>
                     <Text style={styles.recipeTitle}>{recipe.title}</Text>
                     <Text style={styles.recipeDescription} testID="recipeDescp">
                       {/* display description */}
-                      {recipe.recipeDescription?.substring(0, 50) + "..."}
+                      {recipe.description.length > 50 ? recipe.description.substring(0, 50) + "..." : recipe.description}
                     </Text>
                   </TouchableOpacity>
   
