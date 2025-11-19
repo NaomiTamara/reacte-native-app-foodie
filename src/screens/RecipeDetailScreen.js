@@ -68,8 +68,8 @@ export default function RecipeDetailScreen(props) {
             style={styles.recipeDetailsContainer}
             testID="recipeDetailsContainer"
           >
-            <Text style={styles.mealName} testID="recipeTitle">
-              {recipe.recipeTitle}  
+            <Text style={styles.sectionTitle} testID="recipeTitle">
+              {recipe.recipeName}  
             </Text>
             <Text style={styles.recipeCategory} testID="recipeCategory">
               {recipe.recipeCategory}
@@ -114,10 +114,10 @@ export default function RecipeDetailScreen(props) {
           <Text style={styles.sectionTitle}>Instructions</Text>
           <Text>{recipe.recipeInstructions}</Text>
         </View>
-          {/* Description */}
-          <View style={styles.sectionContainer} testID="descriptionContainer">
-            <Text style={styles.sectionTitle}>Description</Text>
-            <Text>{recipe.cookingDescription  }</Text>
+        {/* Description */}
+        <View style={styles.sectionContainer} testID="descriptionContainer">
+          <Text style={styles.sectionTitle}>Description</Text>
+          <Text>{recipe.cookingDescription  }</Text>
         </View>
       </View>
       </View>

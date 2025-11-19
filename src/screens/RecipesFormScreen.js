@@ -10,9 +10,12 @@ export default function RecipesFormScreen({ route, navigation }) {
   const [description, setDescription] = useState(
     recipeToEdit ? recipeToEdit.description : ""
   );
+  const [instructions, setInstructions] = useState(
+    recipeToEdit ? recipeToEdit.instructions : ""
+  );
 
   const saverecipe = async () => {
-    const newrecipe = { title, image, description };
+    const newrecipe = { title, image, description, instructions };
     try {
       const existingRecipes = await AsyncStorage.getItem("customrecipes");
       const recipes = existingRecipes ? JSON.parse(existingRecipes) : [];
@@ -56,8 +59,15 @@ export default function RecipesFormScreen({ route, navigation }) {
         value={description}
         onChangeText={setDescription}
         multiline={true}
-        numberOfLines={4}
+        numberOfLines={1}
         style={[styles.input, { height: hp(20), textAlignVertical: "top" }]}
+      />
+      <TextInput
+        placeholder="Step-by-step Instructions"
+        onChangeText={setInstructions}
+        multiline={true}
+        numberOfLines={4}
+        styles={[styles.input, { height: hp(20), textAlignVertical: "top" }]}
       />
       <TouchableOpacity onPress={saverecipe} style={styles.saveButton}>
         <Text style={styles.saveButtonText}>Save recipe</Text>
@@ -69,7 +79,7 @@ export default function RecipesFormScreen({ route, navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: wp(4),
+    padding: wp(5),
   },
   input: {
     marginTop: hp(4),
