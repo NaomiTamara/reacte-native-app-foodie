@@ -30,7 +30,6 @@ import {
     
     const isFavourite = favoriteRecipe.includes(recipe); // Adjust this according to your recipe structure
 
-
     if (!recipe) {
       return (
         <View style={styles.container}>
@@ -73,11 +72,26 @@ import {
         </View>
   
         {/* Recipe Details */}
-        <View style={styles.contentContainer} testID="contentContainer">
-          <Text style={styles.recipeTitle}>{recipe.title}</Text>
-          <View style={styles.sectionContainer}>
-            <Text style={styles.sectionTitle}>Content</Text>
-            <Text style={styles.contentText}>{recipe.description}</Text>
+        <View style={styles.contentContainer}>
+          <View style={styles.sectionContainer} testID="sectionContainer">
+            <Text style={styles.sectionTitle} testID="recipeTitle">
+              {recipe.title}
+            </Text>
+          </View>
+
+          <View style={styles.sectionContainer} testID="ingredientsContainer">
+            <Text style={styles.sectionTitle}>Ingredients</Text>
+            <Text>{recipe.ingredients}</Text>
+          </View>
+
+          <View style={styles.sectionContainer} testID="sectionContainer">
+            <Text style={styles.sectionTitle}>Instructions</Text>
+            <Text>{recipe.instructions}</Text>
+          </View>
+
+          <View style={styles.sectionContainer} testID="descriptionContainer">
+            <Text style={styles.sectionTitle}>Description</Text>
+            <Text>{recipe.description}</Text>
           </View>
         </View>
       </ScrollView>
