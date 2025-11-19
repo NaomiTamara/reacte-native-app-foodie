@@ -13,9 +13,12 @@ export default function RecipesFormScreen({ route, navigation }) {
   const [instructions, setInstructions] = useState(
     recipeToEdit ? recipeToEdit.instructions : ""
   );
+  const [ingredients, setIngredients] = useState(
+    recipeToEdit ? recipeToEdit.ingredients : ""
+  );
 
   const saverecipe = async () => {
-    const newrecipe = { title, image, description, instructions };
+    const newrecipe = { title, image, description, instructions, ingredients };
     try {
       const existingRecipes = await AsyncStorage.getItem("customrecipes");
       const recipes = existingRecipes ? JSON.parse(existingRecipes) : [];
@@ -60,14 +63,21 @@ export default function RecipesFormScreen({ route, navigation }) {
         onChangeText={setDescription}
         multiline={true}
         numberOfLines={1}
-        style={[styles.input, { height: hp(20), textAlignVertical: "top" }]}
+        style={[styles.input, { height: hp(5), textAlignVertical: "top" }]}
       />
       <TextInput
         placeholder="Step-by-step Instructions"
         onChangeText={setInstructions}
         multiline={true}
         numberOfLines={4}
-        styles={[styles.input, { height: hp(20), textAlignVertical: "top" }]}
+        styles={[styles.input, { height: hp(10), textAlignVertical: "top" }]}
+      />
+      <TextInput
+        placeholder="Ingredients"
+        onChangeText={setIngredients}
+        multiline={true}
+        numberOfLines={4}
+        styles={[styles.input, { height: hp(5), textAlignVertical: "top" }]}
       />
       <TouchableOpacity onPress={saverecipe} style={styles.saveButton}>
         <Text style={styles.saveButtonText}>Save recipe</Text>
@@ -79,7 +89,7 @@ export default function RecipesFormScreen({ route, navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: wp(5),
+    padding: wp(4),
   },
   input: {
     marginTop: hp(4),

@@ -77,16 +77,22 @@ import {
             <Text style={styles.sectionTitle} testID="recipeTitle">
               {recipe.title}
             </Text>
-          </View>    
-            <View style={styles.sectionContainer} testID="sectionContainer">
-              <Text style={styles.sectionTitle}>Instructions</Text>
-              <Text>{recipe.instructions}</Text>
-            </View>
+          </View>
 
-            <View style={styles.sectionContainer} testID="descriptionContainer">
-              <Text style={styles.sectionTitle}>Description</Text>
-              <Text>{recipe.description}</Text>
-            </View>
+          <View style={styles.sectionContainer} testID="ingredientsContainer">
+            <Text style={styles.sectionTitle}>Ingredients</Text>
+            <Text>{recipe.ingredients}</Text>
+          </View>
+
+          <View style={styles.sectionContainer} testID="sectionContainer">
+            <Text style={styles.sectionTitle}>Instructions</Text>
+            <Text>{recipe.instructions}</Text>
+          </View>
+
+          <View style={styles.sectionContainer} testID="descriptionContainer">
+            <Text style={styles.sectionTitle}>Description</Text>
+            <Text>{recipe.description}</Text>
+          </View>
         </View>
       </ScrollView>
     );
